@@ -8,8 +8,9 @@ from textblob import TextBlob
 from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.decomposition import LatentDirichletAllocation
 import nltk
-
-
+nltk.data.path.append('./nltk_data') 
+# Ensure punkt is downloaded
+nltk.download('punkt')
 
 model_path = 'models/en_core_web_sm'
 nlp = spacy.load(model_path)
@@ -27,8 +28,7 @@ def extract_text_from_docx(file):
     text = "\n".join([para.text for para in doc.paragraphs])
     return text
 
-# Ensure punkt is downloaded
-nltk.download('punkt')
+
 
 # NLP Task Functions
 def entity_recognition(text):
