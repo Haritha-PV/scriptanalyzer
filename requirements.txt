@@ -5,4 +5,3 @@ python-docx
 spacy
 textblob
 scikit-learn
-en-core-web-sm==3.8.0
