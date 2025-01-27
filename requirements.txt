@@ -5,3 +5,4 @@ python-docx
 spacy
 textblob
 scikit-learn
+source
