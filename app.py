@@ -7,6 +7,9 @@ import spacy
 from textblob import TextBlob
 from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.decomposition import LatentDirichletAllocation
+import nltk
+nltk.download('punkt')  
+
 
 model_path = 'models/en_core_web_sm'
 nlp = spacy.load(model_path)
