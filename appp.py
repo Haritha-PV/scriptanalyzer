@@ -7,9 +7,14 @@ import spacy
 from textblob import TextBlob
 from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.decomposition import LatentDirichletAllocation
+from spacy.cli import download
 
-# Load spaCy model
-nlp = spacy.load("en_core_web_sm")
+# Download the model if it doesn't exist
+try:
+    nlp = spacy.load("en_core_web_sm")
+except OSError:
+    download("en_core_web_sm")
+    nlp = spacy.load("en_core_web_sm")
 
 # Helper functions
 def extract_text_from_pdf(file):
