@@ -9,12 +9,14 @@ from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.decomposition import LatentDirichletAllocation
 from spacy.cli import download
 
-# Download the model if it doesn't exist
-try:
-    nlp = spacy.load("en_core_web_sm")
-except OSError:
-    download("en_core_web_sm")
-    nlp = spacy.load("en_core_web_sm")
+model_name = "en_core_web_sm"
+
+# Check if the model exists, if not, download it
+if not spacy.util.is_package(model_name):
+    download(model_name)
+
+# Load the model
+nlp = spacy.load(model_name)
 
 # Helper functions
 def extract_text_from_pdf(file):
