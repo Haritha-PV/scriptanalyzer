@@ -27,6 +27,9 @@ def extract_text_from_docx(file):
     text = "\n".join([para.text for para in doc.paragraphs])
     return text
 
+# Ensure punkt is downloaded
+nltk.download('punkt')
+
 # NLP Task Functions
 def entity_recognition(text):
     doc = nlp(text)
